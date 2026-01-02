@@ -1,0 +1,163 @@
+.vehicle-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  display: block;
+}
+
+.vehicle-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--primary-500);
+  box-shadow: var(--shadow-glow);
+}
+
+.vehicle-card-image-container {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.vehicle-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.vehicle-card:hover .vehicle-card-image {
+  transform: scale(1.05);
+}
+
+.vehicle-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.6) 100%);
+  padding: var(--spacing-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.favorite-btn {
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+  transition: all var(--transition-fast);
+}
+
+.favorite-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.favorite-btn.active {
+  background: var(--error-500);
+  color: white;
+}
+
+.favorite-btn.active svg {
+  fill: currentColor;
+}
+
+.vehicle-card-content {
+  padding: var(--spacing-lg);
+}
+
+.vehicle-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-xs);
+}
+
+.vehicle-card-title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+}
+
+.vehicle-card-rating {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+}
+
+.star-icon {
+  color: #fbbf24;
+  fill: #fbbf24;
+}
+
+.review-count {
+  color: var(--text-muted);
+}
+
+.vehicle-card-brand {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+.vehicle-card-specs {
+  display: flex;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.spec-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  text-transform: capitalize;
+}
+
+.spec-item svg {
+  color: var(--primary-400);
+}
+
+.vehicle-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--border-color);
+}
+
+.vehicle-card-price {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-xs);
+}
+
+.price-amount {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--primary-400);
+}
+
+.price-period {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+}
+
+@media (max-width: 640px) {
+  .vehicle-card-image-container {
+    height: 180px;
+  }
+  
+  .vehicle-card-specs {
+    gap: var(--spacing-md);
+  }
+}

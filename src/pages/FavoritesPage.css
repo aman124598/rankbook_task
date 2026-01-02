@@ -1,0 +1,34 @@
+.favorites-page .page-header {
+  padding: var(--spacing-2xl) 0;
+}
+
+.favorites-page .page-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+}
+
+.heart-icon {
+  color: var(--error-500);
+  fill: var(--error-500);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+}
+
+@media (max-width: 1024px) {
+  .favorites-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .favorites-grid {
+    grid-template-columns: 1fr;
+  }
+}

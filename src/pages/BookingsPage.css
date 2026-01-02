@@ -1,0 +1,230 @@
+.bookings-page .page-header {
+  padding: var(--spacing-2xl) 0;
+}
+
+.bookings-tabs {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-xl);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: var(--spacing-sm);
+}
+
+.tab-btn {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: transparent;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  position: relative;
+  transition: all var(--transition-fast);
+}
+
+.tab-btn:hover {
+  color: var(--text-primary);
+}
+
+.tab-btn.active {
+  color: var(--primary-400);
+}
+
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+}
+
+.bookings-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.booking-card {
+  display: grid;
+  grid-template-columns: 200px 1fr auto;
+  gap: var(--spacing-xl);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-lg);
+  transition: all var(--transition-normal);
+}
+
+.booking-card:hover {
+  border-color: var(--border-hover);
+}
+
+.booking-image {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.booking-image img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+
+.booking-image .badge {
+  position: absolute;
+  top: var(--spacing-sm);
+  left: var(--spacing-sm);
+}
+
+.booking-info h3 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-xs);
+}
+
+.booking-category {
+  display: inline-block;
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  text-transform: capitalize;
+  margin-bottom: var(--spacing-md);
+}
+
+.booking-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.detail-item svg {
+  color: var(--primary-400);
+}
+
+.booking-rating {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-md);
+  font-size: var(--font-size-sm);
+}
+
+.booking-rating .star-filled {
+  color: #fbbf24;
+  fill: #fbbf24;
+}
+
+.booking-price-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.booking-price {
+  text-align: right;
+}
+
+.price-label {
+  display: block;
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+}
+
+.price-value {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--primary-400);
+}
+
+.booking-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.cancel-btn {
+  color: var(--error-500);
+}
+
+.cancel-btn:hover {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+/* Rating Modal */
+.modal-vehicle-name {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+}
+
+.rating-stars {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-xl);
+}
+
+.star-btn {
+  font-size: 32px;
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+}
+
+.star-btn:hover,
+.star-btn.active {
+  color: #fbbf24;
+}
+
+.star-btn.active svg {
+  fill: #fbbf24;
+}
+
+.current-end-date {
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-lg);
+}
+
+@media (max-width: 900px) {
+  .booking-card {
+    grid-template-columns: 1fr;
+  }
+  
+  .booking-image img {
+    height: 180px;
+  }
+  
+  .booking-price-actions {
+    flex-direction: row;
+    align-items: center;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--border-color);
+  }
+  
+  .booking-price {
+    text-align: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .booking-price-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-md);
+  }
+  
+  .booking-actions {
+    justify-content: stretch;
+  }
+  
+  .booking-actions .btn {
+    flex: 1;
+  }
+}

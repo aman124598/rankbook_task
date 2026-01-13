@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { FiArrowLeft, FiStar, FiUsers, FiDroplet, FiSettings, FiHeart, FiCheck, FiMapPin, FiCalendar, FiShield } from 'react-icons/fi';
-import { BsSpeedometer2 } from 'react-icons/bs';
+import { FiArrowLeft, FiStar, FiUsers, FiDroplet, FiSettings, FiHeart, FiCheck, FiMapPin, FiCalendar, FiShield, FiCreditCard } from 'react-icons/fi';
+import { BsSpeedometer2, BsFuelPump } from 'react-icons/bs';
 import { getVehicleById, vehicles, pickupLocations } from '../data/vehicles';
 import { useAuth } from '../contexts/AuthContext';
 import { useBooking } from '../contexts/BookingContext';
+import PaymentModal from '../components/PaymentModal';
 import './VehicleDetailPage.css';
 
 function VehicleDetailPage() {
@@ -23,11 +24,14 @@ function VehicleDetailPage() {
   const [promoError, setPromoError] = useState('');
   const [costDetails, setCostDetails] = useState(null);
   const [isBooking, setIsBooking] = useState(false);
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [currentBooking, setCurrentBooking] = useState(null);
 
   useEffect(() => {
     const v = getVehicleById(id);
     if (v) {
       setVehicle(v);
+      window.scrollTo(0, 0);
     } else {
       navigate('/vehicles');
     }
@@ -84,7 +88,8 @@ function VehicleDetailPage() {
         ...costDetails
       });
       
-      navigate('/booking-confirmation', { state: { booking } });
+      setCurrentBooking(booking);
+      setShowPaymentModal(true);
     } catch (error) {
       console.error('Booking failed:', error);
       alert('Booking failed. Please try again.');
@@ -93,14 +98,19 @@ function VehicleDetailPage() {
     }
   };
 
-  const isFavorite = userProfile?.favorites?.includes(id);
-
-  const handleFavorite = async () => {
-    if (currentUser) {
-      await toggleFavorite(id);
-    }
+  const handlePaymentSuccess = (paymentDetails) => {
+    setTimeout(() => {
+      setShowPaymentModal(false);
+      navigate('/booking-confirmation', { 
+        state: { 
+          booking: currentBooking,
+          payment: paymentDetails
+        } 
+      });
+    }, 2000);
   };
 
+  const isFavorite = userProfile?.favorites?.includes(id);
   const today = new Date().toISOString().split('T')[0];
 
   if (!vehicle) {
@@ -126,11 +136,14 @@ function VehicleDetailPage() {
               {currentUser && (
                 <button 
                   className={`gallery-favorite ${isFavorite ? 'active' : ''}`}
-                  onClick={handleFavorite}
+                  onClick={() => toggleFavorite(id)}
                 >
                   <FiHeart />
                 </button>
               )}
+              <div className="gallery-badge">
+                <span className="badge badge-primary">{vehicle.category}</span>
+              </div>
             </div>
             <div className="gallery-thumbnails">
               {vehicle.images.map((img, index) => (
@@ -139,7 +152,7 @@ function VehicleDetailPage() {
                   className={`thumbnail ${selectedImage === index ? 'active' : ''}`}
                   onClick={() => setSelectedImage(index)}
                 >
-                  <img src={img} alt={`${vehicle.name} view ${index + 1}`} />
+                  <img src={img} alt={`View ${index + 1}`} />
                 </button>
               ))}
             </div>
@@ -147,18 +160,21 @@ function VehicleDetailPage() {
 
           {/* Info */}
           <div className="vehicle-info">
-            <span className="badge badge-primary">{vehicle.category}</span>
-            <h1 className="vehicle-title">{vehicle.name}</h1>
-            <p className="vehicle-subtitle">{vehicle.brand} {vehicle.model}</p>
-            
-            <div className="vehicle-rating">
-              <FiStar className="star-filled" />
-              <span className="rating-value">{vehicle.rating}</span>
-              <span className="rating-count">({vehicle.reviews} reviews)</span>
+            <div className="vehicle-header">
+              <div>
+                <h1 className="vehicle-title">{vehicle.name}</h1>
+                <p className="vehicle-subtitle">{vehicle.brand} · {vehicle.model}</p>
+              </div>
+              <div className="vehicle-rating">
+                <FiStar className="star-filled" />
+                <span className="rating-value">{vehicle.rating}</span>
+                <span className="rating-count">({vehicle.reviews})</span>
+              </div>
             </div>
 
             <p className="vehicle-description">{vehicle.description}</p>
 
+            {/* Specs */}
             <div className="vehicle-specs">
               <div className="spec-box">
                 <FiUsers className="spec-icon" />
@@ -166,7 +182,7 @@ function VehicleDetailPage() {
                 <span className="spec-label">Seats</span>
               </div>
               <div className="spec-box">
-                <FiDroplet className="spec-icon" />
+                <BsFuelPump className="spec-icon" />
                 <span className="spec-value">{vehicle.fuelType}</span>
                 <span className="spec-label">Fuel</span>
               </div>
@@ -182,6 +198,7 @@ function VehicleDetailPage() {
               </div>
             </div>
 
+            {/* Features */}
             <div className="vehicle-features">
               <h3>Features</h3>
               <div className="features-list">
@@ -229,7 +246,6 @@ function VehicleDetailPage() {
                     value={startDate}
                     onChange={(e) => setStartDate(e.target.value)}
                     min={today}
-                    max={new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0]}
                     className="form-input"
                   />
                 </div>
@@ -242,7 +258,6 @@ function VehicleDetailPage() {
                     value={endDate}
                     onChange={(e) => setEndDate(e.target.value)}
                     min={startDate || today}
-                    max={new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0]}
                     className="form-input"
                   />
                 </div>
@@ -324,7 +339,13 @@ function VehicleDetailPage() {
                 onClick={handleBooking}
                 disabled={isBooking || !costDetails}
               >
-                {isBooking ? 'Processing...' : 'Book Now'}
+                {isBooking ? (
+                  'Processing...'
+                ) : (
+                  <>
+                    <FiCreditCard /> Book Now
+                  </>
+                )}
               </button>
             </div>
           </div>
@@ -336,19 +357,36 @@ function VehicleDetailPage() {
           <div className="similar-grid">
             {vehicles
               .filter(v => v.category === vehicle.category && v.id !== vehicle.id)
-              .slice(0, 3)
+              .slice(0, 4)
               .map(v => (
                 <Link key={v.id} to={`/vehicles/${v.id}`} className="similar-card">
                   <img src={v.images[0]} alt={v.name} />
                   <div className="similar-info">
                     <h4>{v.name}</h4>
-                    <span>₹{v.pricePerDay.toLocaleString()}/day</span>
+                    <div className="similar-meta">
+                      <span className="similar-rating">
+                        <FiStar className="star-filled" /> {v.rating}
+                      </span>
+                      <span className="similar-price">₹{v.pricePerDay.toLocaleString()}/day</span>
+                    </div>
                   </div>
                 </Link>
               ))}
           </div>
         </section>
       </div>
+
+      {/* Payment Modal */}
+      {showPaymentModal && currentBooking && (
+        <PaymentModal
+          isOpen={showPaymentModal}
+          onClose={() => setShowPaymentModal(false)}
+          booking={currentBooking}
+          user={currentUser}
+          onPaymentSuccess={handlePaymentSuccess}
+          onPaymentFailure={(error) => console.error('Payment failed:', error)}
+        />
+      )}
     </div>
   );
 }

@@ -1,12 +1,21 @@
 import { useLocation, useNavigate, Link } from 'react-router-dom';
-import { FiCheck, FiCalendar, FiMapPin, FiCreditCard, FiMail, FiDownload } from 'react-icons/fi';
+import { useState } from 'react';
+import { FiCheck, FiCalendar, FiMapPin, FiCreditCard, FiMail, FiDownload, FiAlertCircle, FiClock } from 'react-icons/fi';
 import { pickupLocations } from '../data/vehicles';
+import { useAuth } from '../contexts/AuthContext';
+import PaymentModal from '../components/PaymentModal';
 import './BookingConfirmationPage.css';
 
 function BookingConfirmationPage() {
   const location = useLocation();
   const navigate = useNavigate();
+  const { currentUser } = useAuth();
   const booking = location.state?.booking;
+  const payment = location.state?.payment;
+  const paymentPending = location.state?.paymentPending;
+
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [paymentStatus, setPaymentStatus] = useState(payment ? 'paid' : paymentPending ? 'pending' : 'unknown');
 
   if (!booking) {
     return (
@@ -29,17 +38,56 @@ function BookingConfirmationPage() {
 
   const pickupLoc = getLocationDetails(booking.pickup_location);
 
+  const handlePayNow = () => {
+    setShowPaymentModal(true);
+  };
+
+  const handlePaymentSuccess = (details) => {
+    setPaymentStatus('paid');
+    setTimeout(() => {
+      setShowPaymentModal(false);
+    }, 2000);
+  };
+
   return (
     <div className="page confirmation-page">
       <div className="container">
         <div className="confirmation-card">
           <div className="confirmation-header">
-            <div className="success-icon">
-              <FiCheck />
+            <div className={`success-icon ${paymentStatus === 'pending' ? 'pending' : ''}`}>
+              {paymentStatus === 'paid' ? <FiCheck /> : <FiClock />}
             </div>
-            <h1>Booking Confirmed!</h1>
-            <p>Your vehicle has been successfully booked</p>
+            <h1>{paymentStatus === 'paid' ? 'Booking Confirmed!' : 'Booking Created!'}</h1>
+            <p>
+              {paymentStatus === 'paid' 
+                ? 'Your vehicle has been successfully booked and paid for' 
+                : 'Your booking is created. Please complete the payment to confirm.'}
+            </p>
           </div>
+
+          {/* Payment Status Banner */}
+          {paymentStatus === 'pending' && (
+            <div className="payment-pending-banner">
+              <FiAlertCircle />
+              <div>
+                <strong>Payment Pending</strong>
+                <p>Complete the payment to confirm your booking</p>
+              </div>
+              <button className="btn btn-primary btn-sm" onClick={handlePayNow}>
+                Pay Now ₹{booking.total_cost?.toLocaleString()}
+              </button>
+            </div>
+          )}
+
+          {paymentStatus === 'paid' && (
+            <div className="payment-success-banner">
+              <FiCheck />
+              <div>
+                <strong>Payment Successful</strong>
+                <p>Your payment of ₹{booking.total_cost?.toLocaleString()} has been received</p>
+              </div>
+            </div>
+          )}
 
           <div className="booking-id">
             <span className="label">Booking ID</span>
@@ -105,6 +153,12 @@ function BookingConfirmationPage() {
                       <span>Total Amount</span>
                       <span>₹{booking.total_cost?.toLocaleString()}</span>
                     </div>
+                    <div className={`payment-row status ${paymentStatus}`}>
+                      <span>Payment Status</span>
+                      <span className={`status-badge ${paymentStatus}`}>
+                        {paymentStatus === 'paid' ? '✓ Paid' : '⏳ Pending'}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -149,6 +203,18 @@ function BookingConfirmationPage() {
           </div>
         </div>
       </div>
+
+      {/* Payment Modal */}
+      {showPaymentModal && (
+        <PaymentModal
+          isOpen={showPaymentModal}
+          onClose={() => setShowPaymentModal(false)}
+          booking={booking}
+          user={currentUser}
+          onPaymentSuccess={handlePaymentSuccess}
+          onPaymentFailure={(error) => console.error('Payment failed:', error)}
+        />
+      )}
     </div>
   );
 }

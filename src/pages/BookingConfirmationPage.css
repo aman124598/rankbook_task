@@ -51,6 +51,99 @@
   opacity: 0.9;
 }
 
+/* Payment Status Banners */
+.payment-pending-banner,
+.payment-success-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  margin: 0;
+}
+
+.payment-pending-banner {
+  background: rgba(245, 158, 11, 0.1);
+  border-bottom: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.payment-pending-banner > svg {
+  font-size: 32px;
+  color: var(--warning-500);
+  flex-shrink: 0;
+}
+
+.payment-pending-banner > div {
+  flex: 1;
+}
+
+.payment-pending-banner strong {
+  display: block;
+  color: var(--warning-500);
+  margin-bottom: 2px;
+}
+
+.payment-pending-banner p {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.payment-success-banner {
+  background: rgba(34, 197, 94, 0.1);
+  border-bottom: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.payment-success-banner > svg {
+  font-size: 32px;
+  color: var(--success-500);
+  flex-shrink: 0;
+}
+
+.payment-success-banner > div {
+  flex: 1;
+}
+
+.payment-success-banner strong {
+  display: block;
+  color: var(--success-500);
+  margin-bottom: 2px;
+}
+
+.payment-success-banner p {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Status Badge */
+.payment-row.status {
+  margin-top: var(--spacing-sm);
+  padding-top: var(--spacing-sm);
+  border-top: 1px dashed var(--border-color);
+}
+
+.status-badge {
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: var(--font-size-xs);
+}
+
+.status-badge.paid {
+  background: rgba(34, 197, 94, 0.2);
+  color: var(--success-500);
+}
+
+.status-badge.pending {
+  background: rgba(245, 158, 11, 0.2);
+  color: var(--warning-500);
+}
+
+/* Success Icon Pending State */
+.success-icon.pending {
+  background: rgba(245, 158, 11, 0.2);
+}
+
 .booking-id {
   display: flex;
   justify-content: center;

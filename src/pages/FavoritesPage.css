@@ -1,24 +1,90 @@
+/* Favorites Page - Premium Clean Design */
+.favorites-page {
+  min-height: 100vh;
+  padding-top: 100px;
+  padding-bottom: var(--spacing-4xl);
+}
+
+/* Page Header */
 .favorites-page .page-header {
-  padding: var(--spacing-2xl) 0;
+  padding: var(--spacing-2xl) 0 var(--spacing-xl);
 }
 
 .favorites-page .page-title {
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--spacing-xs);
+}
+
+.favorites-page .page-subtitle {
+  color: var(--text-secondary);
+  font-size: var(--font-size-base);
+}
+
+/* Favorites Stats */
+.favorites-stats {
+  display: flex;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.favorites-stat {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: var(--spacing-md);
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border-dim);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
 }
 
-.heart-icon {
-  color: var(--error-500);
-  fill: var(--error-500);
-  animation: pulse 1.5s ease-in-out infinite;
+.favorites-stat strong {
+  color: var(--primary-400);
+  font-weight: 700;
 }
 
+/* Favorites Grid */
 .favorites-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-lg);
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-xl);
+}
+
+/* Empty State */
+.favorites-empty {
+  text-align: center;
+  padding: var(--spacing-4xl) var(--spacing-2xl);
+  background: var(--bg-card);
+  border: 1px solid var(--border-dim);
+  border-radius: var(--radius-2xl);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.favorites-empty-icon {
+  font-size: 64px;
+  margin-bottom: var(--spacing-xl);
+  opacity: 0.5;
+}
+
+.favorites-empty h3 {
+  font-size: var(--font-size-xl);
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+.favorites-empty p {
+  color: var(--text-secondary);
+  margin: 0 0 var(--spacing-xl) 0;
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 1400px) {
+  .favorites-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (max-width: 1024px) {
@@ -27,7 +93,15 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+  .favorites-page {
+    padding-top: 80px;
+  }
+
+  .favorites-stats {
+    flex-wrap: wrap;
+  }
+
   .favorites-grid {
     grid-template-columns: 1fr;
   }

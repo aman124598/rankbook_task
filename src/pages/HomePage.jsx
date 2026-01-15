@@ -126,6 +126,13 @@ function HomePage() {
               </Link>
             </div>
             
+            {/* Terminal Style Command Preview */}
+            <div className="hero-terminal animate-fadeIn">
+              <span className="prompt">~/rides $</span>
+              <span className="command">rankrides book --vehicle="premium"</span>
+              <span className="cursor"></span>
+            </div>
+            
             {/* Quick Search */}
             <div className="hero-quick-search animate-fadeIn">
               <div className="quick-search-label">Popular Searches:</div>
@@ -138,6 +145,18 @@ function HomePage() {
             </div>
           </div>
           <div className="hero-image">
+            {/* Floating Cards */}
+            <div className="hero-floating-card top-right">
+              <div className="floating-card-label">Confidence Score</div>
+              <div className="floating-card-value">82%</div>
+              <div className="floating-card-bar">
+                <div className="floating-card-bar-fill"></div>
+              </div>
+            </div>
+            <div className="hero-floating-card bottom-left">
+              <div className="floating-card-label">AI Assessment</div>
+              <div className="floating-card-value">Approved</div>
+            </div>
             <div className="hero-image-wrapper">
               <img 
                 src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800" 

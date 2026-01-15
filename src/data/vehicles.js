@@ -18,7 +18,7 @@ export const vehicles = [
     features: ['Air Conditioning', 'Bluetooth', 'Cruise Control', 'Backup Camera', 'Leather Seats', 'Sunroof'],
     images: [
       'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=800',
-      'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800'
+      'https://images.unsplash.com/photo-1619682817481-e994891cd1f5?w=800'
     ],
     available: true,
     rating: 4.8,
@@ -42,8 +42,8 @@ export const vehicles = [
     horsepower: 252,
     features: ['Air Conditioning', 'Bluetooth', 'Android Auto', 'Apple CarPlay', 'Lane Assist', 'Heated Seats'],
     images: [
-      'https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=800',
-      'https://images.unsplash.com/photo-1590362891991-f776e747a588?w=800'
+      'https://images.unsplash.com/photo-1619682817481-e994891cd1f5?w=800',
+      'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800'
     ],
     available: true,
     rating: 4.7,
@@ -118,7 +118,7 @@ export const vehicles = [
     features: ['Virtual Cockpit', 'Quattro AWD', 'Bang & Olufsen Audio', 'Matrix LED Headlights', 'Parking Assist', 'Adaptive Cruise'],
     images: [
       'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800',
-      'https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800'
+      'https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=800'
     ],
     available: true,
     rating: 4.8,
@@ -142,8 +142,8 @@ export const vehicles = [
     horsepower: 290,
     features: ['Smart Cruise Control', 'Bose Premium Audio', 'Wireless Charging', 'Ventilated Seats', 'Digital Key', 'Remote Start'],
     images: [
-      'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800',
-      'https://images.unsplash.com/photo-1485291571150-772bcfc10da5?w=800'
+      'https://images.unsplash.com/photo-1629897048514-3dd7414fe72a?w=800',
+      'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=800'
     ],
     available: true,
     rating: 4.6,
@@ -167,8 +167,8 @@ export const vehicles = [
     horsepower: 190,
     features: ['Canton Sound System', 'Virtual Pedal', 'Panoramic Sunroof', 'Massage Seats', 'Area View Camera', 'Heated Steering'],
     images: [
-      'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800',
-      'https://images.unsplash.com/photo-1537984822441-cff330929b84?w=800'
+      'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=800',
+      'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800'
     ],
     available: true,
     rating: 4.7,
@@ -192,8 +192,8 @@ export const vehicles = [
     horsepower: 215,
     features: ['Mark Levinson Audio', 'Air Suspension', 'Heads-Up Display', 'Semi-Aniline Leather', 'Panoramic View Monitor', 'Climate Concierge'],
     images: [
-      'https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=800',
-      'https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800'
+      'https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800',
+      'https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=800'
     ],
     available: true,
     rating: 4.9,
@@ -244,8 +244,8 @@ export const vehicles = [
     horsepower: 170,
     features: ['Trail Rated Badge', 'Terrain Management', 'Panoramic Sunroof', 'Uconnect System', 'All-Weather Mats'],
     images: [
-      'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800',
-      'https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800'
+      'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800',
+      'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800'
     ],
     available: true,
     rating: 4.5,
@@ -294,8 +294,8 @@ export const vehicles = [
     horsepower: 185,
     features: ['ADAS', 'Alexa Built-in', 'Panoramic Sunroof', 'Flush Door Handles', 'Wireless Charging', 'Sony Audio'],
     images: [
-      'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800',
-      'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800'
+      'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800',
+      'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800'
     ],
     available: true,
     rating: 4.7,
@@ -319,7 +319,7 @@ export const vehicles = [
     horsepower: 170,
     features: ['JBL Audio', 'Panoramic Sunroof', 'Air Purifier', 'Connected Car Tech', 'ADAS', 'Ventilated Seats'],
     images: [
-      'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800',
+      'https://images.unsplash.com/photo-1542362567-b07e54358753?w=800',
       'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800'
     ],
     available: true,
@@ -344,8 +344,8 @@ export const vehicles = [
     horsepower: 186,
     features: ['Parametric Grille', 'BOSE Audio', 'Level 2 ADAS', 'Ventilated Seats', '360 Camera', 'Dual Zone AC'],
     images: [
-      'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800',
-      'https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800'
+      'https://images.unsplash.com/photo-1581540222194-0def2dda95b8?w=800',
+      'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=800'
     ],
     available: true,
     rating: 4.6,
@@ -369,8 +369,8 @@ export const vehicles = [
     horsepower: 335,
     features: ['xDrive AWD', 'Laserlight', 'Sky Lounge Panoramic Roof', 'Bowers & Wilkins Audio', 'Gesture Control', 'Parking Assistant Plus'],
     images: [
-      'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800',
-      'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800'
+      'https://images.unsplash.com/photo-1556189250-72ba954cfc2b?w=800',
+      'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800'
     ],
     available: true,
     rating: 4.8,
@@ -420,7 +420,7 @@ export const vehicles = [
     features: ['Quattro AWD', 'Air Suspension', 'Bang & Olufsen 3D Audio', 'Virtual Cockpit', 'Matrix LED', 'Predictive Active Suspension'],
     images: [
       'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800',
-      'https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800'
+      'https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=800'
     ],
     available: true,
     rating: 4.8,
@@ -444,8 +444,8 @@ export const vehicles = [
     horsepower: 400,
     features: ['Pilot Assist', 'Bowers & Wilkins Audio', 'Air Purifier', 'Lounge Console', 'Four-Zone Climate', 'Orrefors Gear Shifter'],
     images: [
-      'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800',
-      'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800'
+      'https://images.unsplash.com/photo-1612825173281-9a193378d98a?w=800',
+      'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800'
     ],
     available: true,
     rating: 4.9,
@@ -571,8 +571,8 @@ export const vehicles = [
     horsepower: 43,
     features: ['Quickshifter+', 'TFT Display', 'Cornering ABS', 'WP Suspension', 'LED Lights'],
     images: [
-      'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=800',
-      'https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?w=800'
+      'https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?w=800',
+      'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=800'
     ],
     available: true,
     rating: 4.7,
@@ -653,133 +653,6 @@ export const vehicles = [
     rating: 4.4,
     reviews: 289,
     description: 'The Dark Side of Japan. Yamaha MT-15 brings aggression to the commuter segment.'
-  },
-  {
-    id: 'bike-9',
-    name: 'Honda CB350',
-    brand: 'Honda',
-    model: 'H\'ness CB350',
-    category: 'bike',
-    pricePerDay: 900,
-    seatingCapacity: 2,
-    fuelType: 'petrol',
-    transmission: 'manual',
-    mileage: '35 km/l',
-    year: 2024,
-    color: 'Pearl Igneous Black',
-    engineCapacity: '348.36cc',
-    horsepower: 21,
-    features: ['Smartphone Voice Control', 'Honda Selectable Torque Control', 'Dual Channel ABS', 'LED Lighting', 'Semi-Digital Meter'],
-    images: [
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800',
-      'https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=800'
-    ],
-    available: true,
-    rating: 4.6,
-    reviews: 198,
-    description: 'Modern classic meets Honda reliability. The H\'ness CB350 is crafted for the long road.'
-  },
-  {
-    id: 'bike-10',
-    name: 'Suzuki Gixxer SF 250',
-    brand: 'Suzuki',
-    model: 'Gixxer SF 250',
-    category: 'bike',
-    pricePerDay: 800,
-    seatingCapacity: 2,
-    fuelType: 'petrol',
-    transmission: 'manual',
-    mileage: '32 km/l',
-    year: 2024,
-    color: 'Triton Blue',
-    engineCapacity: '249cc',
-    horsepower: 26,
-    features: ['Oil-cooled Engine', 'Full-Digital LCD', 'Clip-on Handlebars', 'ABS', 'LED Tail Light'],
-    images: [
-      'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=800',
-      'https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?w=800'
-    ],
-    available: true,
-    rating: 4.5,
-    reviews: 156,
-    description: 'Faired and fierce. The Suzuki Gixxer SF 250 delivers sport bike thrills at an accessible price.'
-  },
-
-  // === LUXURY CARS ===
-  {
-    id: 'luxury-1',
-    name: 'Mercedes-Benz S-Class',
-    brand: 'Mercedes-Benz',
-    model: 'S500 AMG Line',
-    category: 'sedan',
-    pricePerDay: 18000,
-    seatingCapacity: 5,
-    fuelType: 'petrol',
-    transmission: 'automatic',
-    mileage: '10 km/l',
-    year: 2024,
-    color: 'Obsidian Black',
-    engineCapacity: '3.0L I6 Turbo',
-    horsepower: 429,
-    features: ['MBUX Hyperscreen', 'Burmester 4D Sound', 'E-Active Body Control', 'Rear-Axle Steering', 'Digital Light', 'Executive Rear Seats'],
-    images: [
-      'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800',
-      'https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=800'
-    ],
-    available: true,
-    rating: 5.0,
-    reviews: 98,
-    description: 'The pinnacle of automotive luxury. The Mercedes-Benz S-Class defines what a flagship should be.'
-  },
-  {
-    id: 'luxury-2',
-    name: 'BMW 7 Series',
-    brand: 'BMW',
-    model: '740i M Sport',
-    category: 'sedan',
-    pricePerDay: 16000,
-    seatingCapacity: 5,
-    fuelType: 'petrol',
-    transmission: 'automatic',
-    mileage: '11 km/l',
-    year: 2024,
-    color: 'Mineral White',
-    engineCapacity: '3.0L TwinPower Turbo',
-    horsepower: 375,
-    features: ['Theatre Screen', 'Sky Lounge Panoramic Roof', 'Executive Lounge Seating', 'Bowers & Wilkins Diamond', 'Interaction Bar', 'Automatic Doors'],
-    images: [
-      'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800',
-      'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800'
-    ],
-    available: true,
-    rating: 4.9,
-    reviews: 87,
-    description: 'Redefining luxury mobility. The BMW 7 Series combines bold design with groundbreaking technology.'
-  },
-  {
-    id: 'luxury-3',
-    name: 'Porsche Cayenne',
-    brand: 'Porsche',
-    model: 'Cayenne Turbo GT',
-    category: 'suv',
-    pricePerDay: 22000,
-    seatingCapacity: 5,
-    fuelType: 'petrol',
-    transmission: 'automatic',
-    mileage: '7 km/l',
-    year: 2024,
-    color: 'GT Silver',
-    engineCapacity: '4.0L V8 Twin-Turbo',
-    horsepower: 631,
-    features: ['PASM', 'Rear-Axle Steering', 'Carbon Ceramic Brakes', 'Sport Chrono Package', 'Burmester Audio', 'Lightweight Forged Wheels'],
-    images: [
-      'https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=800',
-      'https://images.unsplash.com/photo-1551522435-a13afa10f103?w=800'
-    ],
-    available: true,
-    rating: 5.0,
-    reviews: 76,
-    description: 'The fastest production SUV on the Nürburgring. Porsche Cayenne Turbo GT is pure performance.'
   }
 ];
 
@@ -800,63 +673,21 @@ export function getVehicleById(id) {
   return vehicles.find(v => v.id === id);
 }
 
-export function getVehiclesByCategory(category) {
-  if (!category || category === 'all') return vehicles;
-  return vehicles.filter(v => v.category === category);
-}
-
-export function filterVehicles({ category, minPrice, maxPrice, seatingCapacity, fuelType, transmission, search, brand }) {
-  let filtered = [...vehicles];
-
-  if (category && category !== 'all') {
-    filtered = filtered.filter(v => v.category === category);
-  }
-
-  if (minPrice) {
-    filtered = filtered.filter(v => v.pricePerDay >= parseInt(minPrice));
-  }
-
-  if (maxPrice) {
-    filtered = filtered.filter(v => v.pricePerDay <= parseInt(maxPrice));
-  }
-
-  if (seatingCapacity) {
-    filtered = filtered.filter(v => v.seatingCapacity >= parseInt(seatingCapacity));
-  }
-
-  if (fuelType && fuelType !== 'all') {
-    filtered = filtered.filter(v => v.fuelType === fuelType);
-  }
-
-  if (transmission && transmission !== 'all') {
-    filtered = filtered.filter(v => v.transmission === transmission);
-  }
-
-  if (brand && brand !== 'all') {
-    filtered = filtered.filter(v => v.brand === brand);
-  }
-
-  if (search) {
-    const searchLower = search.toLowerCase();
-    filtered = filtered.filter(v => 
-      v.name.toLowerCase().includes(searchLower) ||
-      v.brand.toLowerCase().includes(searchLower) ||
-      v.model.toLowerCase().includes(searchLower) ||
-      v.category.toLowerCase().includes(searchLower)
-    );
-  }
-
-  return filtered;
-}
-
-export function getUniqueBrands() {
-  return [...new Set(vehicles.map(v => v.brand))].sort();
-}
-
-export function getPriceRange() {
-  const prices = vehicles.map(v => v.pricePerDay);
-  return {
-    min: Math.min(...prices),
-    max: Math.max(...prices)
-  };
+export function filterVehicles({ category, minPrice, maxPrice, seatingCapacity, fuelType, search }) {
+  return vehicles.filter(vehicle => {
+    if (category && category !== 'all' && vehicle.category !== category) return false;
+    if (minPrice && vehicle.pricePerDay < parseInt(minPrice)) return false;
+    if (maxPrice && vehicle.pricePerDay > parseInt(maxPrice)) return false;
+    if (seatingCapacity && vehicle.seatingCapacity < parseInt(seatingCapacity)) return false;
+    if (fuelType && fuelType !== 'all' && vehicle.fuelType !== fuelType) return false;
+    if (search) {
+      const searchLower = search.toLowerCase();
+      const matchesSearch = 
+        vehicle.name.toLowerCase().includes(searchLower) ||
+        vehicle.brand.toLowerCase().includes(searchLower) ||
+        vehicle.model.toLowerCase().includes(searchLower);
+      if (!matchesSearch) return false;
+    }
+    return true;
+  });
 }

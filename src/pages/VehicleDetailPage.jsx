@@ -129,7 +129,7 @@ function VehicleDetailPage() {
         </button>
 
         <div className="vehicle-detail-grid">
-          {/* Gallery */}
+          {/* Left: Gallery */}
           <div className="vehicle-gallery">
             <div className="gallery-main">
               <img src={vehicle.images[selectedImage]} alt={vehicle.name} />
@@ -158,8 +158,9 @@ function VehicleDetailPage() {
             </div>
           </div>
 
-          {/* Info */}
+          {/* Right: Info + Booking */}
           <div className="vehicle-info">
+            {/* Header */}
             <div className="vehicle-header">
               <div>
                 <h1 className="vehicle-title">{vehicle.name}</h1>
@@ -172,6 +173,7 @@ function VehicleDetailPage() {
               </div>
             </div>
 
+            {/* Description */}
             <p className="vehicle-description">{vehicle.description}</p>
 
             {/* Specs */}
@@ -210,143 +212,140 @@ function VehicleDetailPage() {
                 ))}
               </div>
             </div>
-          </div>
 
-          {/* Booking Card */}
-          <div className="booking-card">
-            <div className="booking-price">
-              <span className="price-amount">₹{vehicle.pricePerDay.toLocaleString()}</span>
-              <span className="price-period">/day</span>
-            </div>
-
-            <div className="booking-form">
-              <div className="form-group">
-                <label className="form-label">
-                  <FiMapPin /> Pickup Location
-                </label>
-                <select
-                  value={pickupLocation}
-                  onChange={(e) => setPickupLocation(e.target.value)}
-                  className="form-input form-select"
-                >
-                  <option value="">Select location</option>
-                  {pickupLocations.map(loc => (
-                    <option key={loc.id} value={loc.id}>{loc.name}</option>
-                  ))}
-                </select>
+            {/* Booking Card */}
+            <div className="booking-card">
+              <div className="booking-price">
+                <span className="price-amount">₹{vehicle.pricePerDay.toLocaleString()}</span>
+                <span className="price-period">/day</span>
               </div>
 
-              <div className="form-row">
+              <div className="booking-form">
                 <div className="form-group">
                   <label className="form-label">
-                    <FiCalendar /> Start Date
+                    <FiMapPin /> Pickup Location
                   </label>
-                  <input
-                    type="date"
-                    value={startDate}
-                    onChange={(e) => setStartDate(e.target.value)}
-                    min={today}
-                    className="form-input"
-                  />
+                  <select
+                    value={pickupLocation}
+                    onChange={(e) => setPickupLocation(e.target.value)}
+                    className="form-input form-select"
+                  >
+                    <option value="">Select location</option>
+                    {pickupLocations.map(loc => (
+                      <option key={loc.id} value={loc.id}>{loc.name}</option>
+                    ))}
+                  </select>
                 </div>
-                <div className="form-group">
-                  <label className="form-label">
-                    <FiCalendar /> End Date
-                  </label>
-                  <input
-                    type="date"
-                    value={endDate}
-                    onChange={(e) => setEndDate(e.target.value)}
-                    min={startDate || today}
-                    className="form-input"
-                  />
-                </div>
-              </div>
 
-              <div className="insurance-option">
-                <label className="checkbox-label">
-                  <input
-                    type="checkbox"
-                    checked={includeInsurance}
-                    onChange={(e) => setIncludeInsurance(e.target.checked)}
-                  />
-                  <span className="checkbox-custom"></span>
-                  <div className="checkbox-content">
-                    <FiShield className="insurance-icon" />
-                    <div>
+                <div className="form-row">
+                  <div className="form-group">
+                    <label className="form-label">
+                      <FiCalendar /> Start Date
+                    </label>
+                    <input
+                      type="date"
+                      value={startDate}
+                      onChange={(e) => setStartDate(e.target.value)}
+                      min={today}
+                      className="form-input"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label">
+                      <FiCalendar /> End Date
+                    </label>
+                    <input
+                      type="date"
+                      value={endDate}
+                      onChange={(e) => setEndDate(e.target.value)}
+                      min={startDate || today}
+                      className="form-input"
+                    />
+                  </div>
+                </div>
+
+                <div className="insurance-option">
+                  <label className="checkbox-label">
+                    <input
+                      type="checkbox"
+                      checked={includeInsurance}
+                      onChange={(e) => setIncludeInsurance(e.target.checked)}
+                    />
+                    <div className="checkbox-content">
+                      <FiShield className="insurance-icon" />
                       <span className="checkbox-title">Add Insurance</span>
                       <span className="checkbox-subtitle">+10% for full coverage</span>
                     </div>
-                  </div>
-                </label>
-              </div>
+                  </label>
+                </div>
 
-              <div className="promo-section">
-                <div className="promo-input-group">
-                  <input
-                    type="text"
-                    placeholder="Promo code"
-                    value={promoCode}
-                    onChange={(e) => setPromoCode(e.target.value.toUpperCase())}
-                    className="form-input"
-                    disabled={!!appliedPromo}
-                  />
-                  {appliedPromo ? (
-                    <button className="btn btn-ghost btn-sm" onClick={handleRemovePromo}>
-                      Remove
-                    </button>
-                  ) : (
-                    <button className="btn btn-secondary btn-sm" onClick={handleApplyPromo}>
-                      Apply
-                    </button>
+                <div className="promo-section">
+                  <div className="promo-input-group">
+                    <input
+                      type="text"
+                      placeholder="Promo code"
+                      value={promoCode}
+                      onChange={(e) => setPromoCode(e.target.value.toUpperCase())}
+                      className="form-input"
+                      disabled={!!appliedPromo}
+                    />
+                    {appliedPromo ? (
+                      <button className="btn btn-ghost btn-sm" onClick={handleRemovePromo}>
+                        Remove
+                      </button>
+                    ) : (
+                      <button className="btn btn-secondary btn-sm" onClick={handleApplyPromo}>
+                        Apply
+                      </button>
+                    )}
+                  </div>
+                  {promoError && <span className="promo-error">{promoError}</span>}
+                  {appliedPromo && (
+                    <span className="promo-success">
+                      <FiCheck /> {appliedPromo.description} applied!
+                    </span>
                   )}
                 </div>
-                {promoError && <span className="promo-error">{promoError}</span>}
-                {appliedPromo && (
-                  <span className="promo-success">
-                    <FiCheck /> {appliedPromo.description} applied!
-                  </span>
-                )}
-              </div>
 
-              {costDetails && (
-                <div className="cost-breakdown">
-                  <div className="cost-row">
-                    <span>₹{vehicle.pricePerDay.toLocaleString()} × {costDetails.days} days</span>
-                    <span>₹{costDetails.baseCost.toLocaleString()}</span>
-                  </div>
-                  {costDetails.insuranceCost > 0 && (
+                {costDetails && (
+                  <div className="cost-breakdown">
                     <div className="cost-row">
-                      <span>Insurance</span>
-                      <span>₹{costDetails.insuranceCost.toLocaleString()}</span>
+                      <span>₹{vehicle.pricePerDay.toLocaleString()} × {costDetails.days} days</span>
+                      <span>₹{costDetails.baseCost.toLocaleString()}</span>
                     </div>
-                  )}
-                  {costDetails.discount > 0 && (
-                    <div className="cost-row discount">
-                      <span>Discount</span>
-                      <span>-₹{costDetails.discount.toLocaleString()}</span>
+                    {costDetails.insuranceCost > 0 && (
+                      <div className="cost-row">
+                        <span>Insurance</span>
+                        <span>₹{costDetails.insuranceCost.toLocaleString()}</span>
+                      </div>
+                    )}
+                    {costDetails.discount > 0 && (
+                      <div className="cost-row discount">
+                        <span>Discount</span>
+                        <span>-₹{costDetails.discount.toLocaleString()}</span>
+                      </div>
+                    )}
+                    <div className="cost-row total">
+                      <span>Total</span>
+                      <span>₹{costDetails.totalCost.toLocaleString()}</span>
                     </div>
-                  )}
-                  <div className="cost-row total">
-                    <span>Total</span>
-                    <span>₹{costDetails.totalCost.toLocaleString()}</span>
                   </div>
-                </div>
-              )}
-
-              <button 
-                className="btn btn-primary btn-lg booking-submit"
-                onClick={handleBooking}
-                disabled={isBooking || !costDetails}
-              >
-                {isBooking ? (
-                  'Processing...'
-                ) : (
-                  <>
-                    <FiCreditCard /> Book Now
-                  </>
                 )}
-              </button>
+
+                <button 
+                  className="btn btn-primary btn-lg booking-submit"
+                  onClick={handleBooking}
+                  disabled={isBooking || !costDetails}
+                >
+                  {isBooking ? (
+                    'Processing...'
+                  ) : (
+                    <>
+                      <FiCreditCard /> Book Now
+                    </>
+                  )}
+                </button>
+              </div>
             </div>
           </div>
         </div>
